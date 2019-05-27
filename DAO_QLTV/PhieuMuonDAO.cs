@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAO_QLTV
 {
-    class PhieuMuonDAO : DBConnection
+    public class PhieuMuonDAO : DBConnection
     {
         public DataTable GetAllData()
         {

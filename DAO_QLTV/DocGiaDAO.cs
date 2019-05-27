@@ -102,9 +102,9 @@ namespace DAO_QLTV
             try
             {
                 connection.Open();
-                string sql = "SELECT * FROM DocGia WHERE IdDocGia = @id";
+                string sql = "SELECT * FROM DocGia WHERE Cmnd = @cmnd";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@id", docGia.Id);
+                command.Parameters.AddWithValue("@cmnd", docGia.Cmnd);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 if (reader.HasRows)

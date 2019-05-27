@@ -97,14 +97,14 @@ namespace DAO_QLTV
             return false;
         }
 
-        public bool IsExist(DocGiaDTO docGia)
+        public bool IsExist(PhieuMuonChiTietDTO phieuMuonChiTiet)
         {
             try
             {
                 connection.Open();
-                string sql = "SELECT * FROM DocGia WHERE IdDocGia = @id";
+                string sql = "SELECT * FROM PhieuMuonChiTiet WHERE IdPhieuMuonChiTiet = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@id", docGia.Id);
+                command.Parameters.AddWithValue("@id", phieuMuonChiTiet.Id);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 if (reader.HasRows)

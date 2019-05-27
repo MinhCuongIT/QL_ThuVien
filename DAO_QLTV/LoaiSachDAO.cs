@@ -98,9 +98,9 @@ namespace DAO_QLTV
             try
             {
                 connection.Open();
-                string sql = "SELECT * FROM LoaiSach WHERE IdLoaiSach = @id";
+                string sql = "SELECT * FROM LoaiSach WHERE TenLoaiSach = @tenLoaiSach";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@id", loaiSach.IdLoaiSach);
+                command.Parameters.AddWithValue("@tenLoaiSach", loaiSach.TenLoaiSach);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 if (reader.HasRows)
