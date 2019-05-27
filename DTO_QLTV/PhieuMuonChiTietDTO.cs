@@ -8,10 +8,10 @@ namespace DTO_QLTV
 {
     public class PhieuMuonChiTietDTO
     {
-        int id;
-        int idPhieuMuon;
-        int idSach;
-        int soLuongMuon;
+        private int id;
+        private int idPhieuMuon;
+        private int idSach;
+        private int soLuongMuon;
 
         public PhieuMuonChiTietDTO()
         {

@@ -8,12 +8,12 @@ namespace DTO_QLTV
 {
     public class PhieuMuonDTO
     {
-        int idPhieuMuon;
-        int idDocGia;
-        DateTime ngayMuon;
-        DateTime ngayTraLyThuyet;
-        DateTime ngayTraThucTe;
-        int tienCoc;
+        private int idPhieuMuon;
+        private int idDocGia;
+        private DateTime ngayMuon;
+        private DateTime ngayTraLyThuyet;
+        private DateTime ngayTraThucTe;
+        private int tienCoc;
 
 
         public PhieuMuonDTO()

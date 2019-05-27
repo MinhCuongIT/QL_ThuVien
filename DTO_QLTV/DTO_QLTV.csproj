@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConection.cs" />
+    <Compile Include="DocGiaDTO.cs" />
+    <Compile Include="LoaiSachDTO.cs" />
     <Compile Include="PhieuMuonChiTietDTO.cs" />
     <Compile Include="PhieuMuonDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
