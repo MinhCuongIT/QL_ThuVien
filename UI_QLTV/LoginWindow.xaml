@@ -1,0 +1,25 @@
+﻿<Window x:Class="UI_QLTV.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_QLTV"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#5DA3E2"
+        Title="Đăng nhập" Height="500" Width="350" Icon="Assets/login.png">
+    <Border Background="#AEDCF4" CornerRadius="20" Margin="20">
+        <StackPanel Margin="20">
+            <Label Content="Đăng nhập" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+            <Image Source="Assets/icon.png" Width="80" Height="80"/>
+            <Separator/>
+            <Label Foreground="White" Content="_Username" Target="{Binding ElementName=txtUsername}"/>
+            <TextBox  ToolTip="Tên đăng nhập" Name="txtUsername" Background="#DBEDF9" Foreground="White" FontSize="18"/>
+            <Label Foreground="White" Content="_Password" Target="{Binding ElementName=txtPassword}"/>
+            <PasswordBox ToolTip="Mật khẩu" Name="txtPassword" Background="#DBEDF9" Foreground="White" FontSize="18"/>
+            <Button HorizontalAlignment="Center" Cursor="Hand" ToolTip="Đăng nhập vào hệ thống" x:Name="btnLogin" Foreground="White" Content="_Đăng nhập" Margin="0,20" Background="#3F7DE9" FontSize="18" Height="42" RenderTransformOrigin="0.392,0.522" Click="BtnLogin_Click"></Button>
+            <Label Name="lblGuessLogin" Cursor="Hand" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Content="Đăng nhập với vai trò khách" Margin="0, 10" MouseDown="LblGuessLogin_MouseDown"/>
+        </StackPanel>
+    </Border>
+</Window>

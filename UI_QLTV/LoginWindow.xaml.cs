@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UI_QLTV
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void LblGuessLogin_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OK");
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("OK1");
         }
     }
 }
