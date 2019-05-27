@@ -8,20 +8,20 @@ namespace DTO_QLTV
 {
     public class LoaiSachDTO
     {
-        private int loaiSach;
+        private int idLoaiSach;
         private string tenLoaiSach;
 
         public LoaiSachDTO()
         {
         }
 
-        public LoaiSachDTO(int loaiSach, string tenLoaiSach)
+        public LoaiSachDTO(int idLoaiSach, string tenLoaiSach)
         {
-            this.loaiSach = loaiSach;
+            this.idLoaiSach = idLoaiSach;
             this.tenLoaiSach = tenLoaiSach;
         }
 
-        public int LoaiSach { get => loaiSach; set => loaiSach = value; }
+        public int IdLoaiSach { get => idLoaiSach; set => idLoaiSach = value; }
         public string TenLoaiSach { get => tenLoaiSach; set => tenLoaiSach = value; }
     }
 }

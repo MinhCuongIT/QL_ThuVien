@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoaiSachDAO.cs" />
+    <Compile Include="DocGiaDAO.cs" />
+    <Compile Include="PhieuMuonChiTietDAO.cs" />
+    <Compile Include="PhieuMuonDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SachDAO.cs" />
+    <Compile Include="TaiKhoanDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO_QLTV\DTO_QLTV.csproj">

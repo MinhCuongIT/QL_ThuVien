@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTO_QLTV
 {
-    public class DBConection
+    public class DBConnection
     {
         protected SqlConnection connection = new SqlConnection(@"Data Source=.\sqlexpress;Initial Catalog=QL_ThuVien;Integrated Security=True");
     }
