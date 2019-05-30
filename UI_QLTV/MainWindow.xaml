@@ -1,0 +1,147 @@
+﻿<Window x:Class="UI_QLTV.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_QLTV"
+        Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="450" Width="800" Icon="Assets/library.ico">
+    <Border CornerRadius="20" Margin="5">
+        <Border.Background>
+            <ImageBrush ImageSource="Assets/labrarybook.jpg" Opacity="0.3"/>
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="Transparent">
+                    <Grid.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="5 10 5 4"></Setter>
+                            <Setter Property="Background" Value="LightCyan"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btnCategory" Grid.Column="0" ToolTip="Quản lý loại sách trong thư viện">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Loại Sách" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="24" Height="24"  Kind="Mailbox" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnProduct" Grid.Column="1" ToolTip="Quản lý sách trong thư viện">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Sách" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="TabletAndroid" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnBanHang" Grid.Column="2" ToolTip="Lập phiếu mượn sách">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Lập phiếu" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Dns" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnThongKe" Grid.Column="3" ToolTip="Thông kê mượn sách">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Thống kê" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Altimeter" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnQuanLyKhachHang" Grid.Column="4" ToolTip=" Quản lý đọc giả trong hệ thống">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Độc giả" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="HumanHandsup" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnQuanLyTaiKhoan" Grid.Column="5" ToolTip="Quản lý tài khoản trong hệ thống">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Tài khoản" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="AccountMultiple" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Name="btnAbout" Grid.Column="6" ToolTip="Thông tin về phần mềm" Click="BtnAbout_Click_1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="About" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="InformationVariant" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Label x:Name="label" Content="Phần mềm quản lý thư viện" HorizontalAlignment="Center" Margin="151,10,105,0" VerticalAlignment="Top" FontSize="36" Width="526" FontWeight="Bold"/>
+                <Label x:Name="txtDate" HorizontalAlignment="Left" Margin="254,72,0,226" Foreground="DarkRed" VerticalAlignment="Center" Width="374" FontWeight="Bold" FontSize="25" Height="53"/>
+                <Label x:Name="txtTime" HorizontalAlignment="Left" Margin="334,103,0,199" Foreground="DarkRed" VerticalAlignment="Center" Width="204" FontWeight="Bold" FontSize="25" Height="49"/>
+                <Image x:Name="image" Source="Assets/labrarybook.jpg" HorizontalAlignment="Left" Height="184" Margin="254,167,0,0" VerticalAlignment="Top" Width="248"/>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

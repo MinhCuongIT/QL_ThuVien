@@ -18,7 +18,10 @@ namespace BUS_QLTV
         {
             return taiKhoanDAO.GetAllData();
         }
-
+        public DataTable GetAccountByUsername(string username)
+        {
+            return taiKhoanDAO.GetAccountByUsername(username);
+        }
         public bool Insert(TaiKhoanDTO taiKhoan)
         {
             if (Invalid(taiKhoan.Username) ||

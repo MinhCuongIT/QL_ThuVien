@@ -1,0 +1,20 @@
+﻿<Window x:Class="UI_QLTV.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_QLTV"
+        mc:Ignorable="d"
+        Title="Thông tin về chương trình" Height="400" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Border CornerRadius="20" Margin="5">
+        <Border.Background>
+            <ImageBrush ImageSource="Assets/labrarybook.jpg" Opacity="0.3"/>
+        </Border.Background>
+        <Grid>
+            <Label x:Name="label" Content="Thông tin" HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <TextBox FontWeight="Medium" VerticalContentAlignment="Center" FontSize="14" Width="350" Height="250" Text="1. Tên đồ án: Phần mềm quản lý thư viện&#xD;&#xA;2. Sinh viên thực hiện:&#xD;&#xA;&#x9;1. Trần Minh Cường&#xD;&#xA;&#x9;2. Hồ Ngọc Phương Duy&#xD;&#xA;3. Mô tả: Chương trình là đồ án cuối kì&#xD;&#xA;&#x9;của môn học phân tích và thiết kế phần mềm,&#xD;&#xA;&#x9;chương trình giúp thủ thư quản lý các đầu&#xD;&#xA;&#x9;sách tại thư viện, thống kế số sách được,&#xD;&#xA;&#x9;sách lâu rồi chưa được mượn, sách đọc giả&#xD;&#xA;&#x9;đọc nhiều nhất, phần mềm còn giúp đọc giả&#xD;&#xA;&#x9;tra cứu sách mượn một cách nhanh chóng,&#xD;&#xA;&#x9;chính xác. Người được cấp quyền cao nhất&#xD;&#xA;&#x9;trong hệ thống là admin." Background="#FFF5EDED"/>
+
+        </Grid>
+    </Border>
+</Window>

@@ -20,6 +20,15 @@ namespace DAO_QLTV
             return dataTable;
         }
 
+        public DataTable GetAccountByUsername(string username)
+        {
+            string sql = $"SELECT * FROM TaiKhoan WHERE Username = '{username}'";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
         public bool Insert(TaiKhoanDTO taiKhoan)
         {
             try
@@ -107,7 +116,7 @@ namespace DAO_QLTV
                 connection.Open();
                 string sql = "SELECT * FROM TaiKhoan WHERE Username = @username";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@id", taiKhoan.Username);
+                command.Parameters.AddWithValue("@username", taiKhoan.Username);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 if (reader.HasRows)
