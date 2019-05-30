@@ -105,7 +105,7 @@
                             </Grid>
                         </Grid>
                     </Button>
-                    <Button Name="btnQuanLyTaiKhoan" Grid.Column="5" ToolTip="Quản lý tài khoản trong hệ thống">
+                    <Button Name="btnQuanLyTaiKhoan" Grid.Column="5" ToolTip="Quản lý tài khoản trong hệ thống" Click="BtnQuanLyTaiKhoan_Click">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>

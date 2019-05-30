@@ -26,7 +26,7 @@ namespace UI_QLTV
             InitializeComponent();
             //Set tiêu đề cho màn hình
             this.Title = "Dashboard - Xin chào " + loginWindow.CurrTaiKhoan.TenHienThi + "!";
-            if (loginWindow.CurrTaiKhoan.VaiTro != 0)
+            if (!loginWindow.CurrTaiKhoan.VaiTro)
             {
                 this.btnQuanLyTaiKhoan.IsEnabled = false;
             }
@@ -66,6 +66,12 @@ namespace UI_QLTV
         {
             AboutWindow aboutWindow = new AboutWindow();
             aboutWindow.ShowDialog();
+        }
+
+        private void BtnQuanLyTaiKhoan_Click(object sender, RoutedEventArgs e)
+        {
+            AccountWindow accountWindow = new AccountWindow();
+            accountWindow.ShowDialog();
         }
     }
 }

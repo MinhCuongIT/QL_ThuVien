@@ -98,7 +98,7 @@ namespace DAO_QLTV
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

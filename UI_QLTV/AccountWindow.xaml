@@ -1,0 +1,47 @@
+﻿<Window x:Class="UI_QLTV.AccountWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_QLTV"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="AccountWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0" Margin="5" FontSize="15">
+            <WrapPanel Margin="0 0 0 10">
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtUsername" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đăng nhập"/>
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtPassword" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mật khẩu"/>
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtTenHienThi" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên hiển thị"/>
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Vai trò:</TextBlock>
+                    <RadioButton Name="rbAdmin" Margin="0,0,10,0" Style="{StaticResource MaterialDesignRadioButton}">
+                        Quản trị viên
+                    </RadioButton>
+                    <RadioButton Name="rbThuThu" Style="{StaticResource MaterialDesignRadioButton}">
+                        Thủ thư
+                    </RadioButton>
+                </StackPanel>
+            </WrapPanel>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Row="1" Margin="5">
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Click="BtnThem_Click" Name="btnThem" Content="Thêm" Margin="5" Width="100"/>
+                <Button Click="BtnCapNhat_Click" Name="btnCapNhat" Content="Cập nhật" Margin="5" Width="100"/>
+                <Button Click="BtnXoa_Click" Name="btnXoa" Content="Xóa" Margin="5" Width="100"/>
+                <Button Name="btnReset" Content="Xóa trống" Margin="5" Width="100" Click="BtnReset_Click"/>
+            </WrapPanel>
+        </materialDesign:Card>
+
+        <DataGrid SelectionUnit="FullRow" CurrentCellChanged="DgAccounts_CurrentCellChanged" CanUserDeleteRows="False" CanUserAddRows="False" Name="dgAccounts" Grid.Row="2" Margin="5">
+
+        </DataGrid>
+    </Grid>
+</Window>

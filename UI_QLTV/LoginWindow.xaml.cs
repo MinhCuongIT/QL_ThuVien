@@ -55,7 +55,7 @@ namespace UI_QLTV
                     taiKhoan.IdTaiKhoan = (int)dt.Rows[0]["IdTaiKhoan"];
                     taiKhoan.Password = dt.Rows[0]["Password"].ToString();
                     taiKhoan.TenHienThi = dt.Rows[0]["TenHienThi"].ToString();
-                    taiKhoan.VaiTro = (int)dt.Rows[0]["VaiTro"];
+                    taiKhoan.VaiTro = (bool)dt.Rows[0]["VaiTro"];
 
                     this.currTaiKhoan = taiKhoan;
                     MainWindow mainWindow = new MainWindow(this);

@@ -12,13 +12,13 @@ namespace DTO_QLTV
         private string username;
         private string password;
         private string tenHienThi;
-        private int vaiTro;
+        private bool vaiTro;
 
         public TaiKhoanDTO()
         {
         }
 
-        public TaiKhoanDTO(int idTaiKhoan, string username, string password, string tenHienThi, int vaiTro)
+        public TaiKhoanDTO(int idTaiKhoan, string username, string password, string tenHienThi, bool vaiTro)
         {
             this.idTaiKhoan = idTaiKhoan;
             this.username = username;
@@ -31,6 +31,6 @@ namespace DTO_QLTV
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string TenHienThi { get => tenHienThi; set => tenHienThi = value; }
-        public int VaiTro { get => vaiTro; set => vaiTro = value; }
+        public bool VaiTro { get => vaiTro; set => vaiTro = value; }
     }
 }
