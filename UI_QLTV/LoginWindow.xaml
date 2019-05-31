@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UI_QLTV"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -31,8 +32,16 @@
                     <SolidColorBrush Color="#FFF0E4DE" Opacity="0.5"/>
                 </PasswordBox.Background>
             </PasswordBox>
-            <Button HorizontalAlignment="Center" Cursor="Hand" ToolTip="Đăng nhập vào hệ thống" x:Name="btnLogin" Foreground="White" Content="_Đăng nhập" Margin="0,20" Background="#3F7DE9" FontSize="18" Height="42" RenderTransformOrigin="0.392,0.522" Click="BtnLogin_Click"></Button>
-            <Label Name="lblGuessLogin" Cursor="Hand" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Content="Đăng nhập với vai trò khách" Margin="0, 10" MouseDown="LblGuessLogin_MouseDown" Background="#FFE6CECE"/>
+            <Button HorizontalAlignment="Center" Cursor="Hand" ToolTip="Đăng nhập vào hệ thống" x:Name="btnLogin" Foreground="White" Margin="0,20" Background="#3F7DE9" Click="BtnLogin_Click">
+                <StackPanel Orientation="Horizontal" >
+                    <materialDesign:PackIcon Height="30" Width="30" Kind="Login" VerticalAlignment="Center" />
+                    <TextBlock FontSize="17" Text="Đăng nhập" HorizontalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <materialDesign:PackIcon Height="25" Width="25" VerticalAlignment="Center" Kind="Face" />
+                <Label Name="lblGuessLogin" Cursor="Hand" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" Content="Đăng nhập với vai trò khách" Margin="0, 10" MouseDown="LblGuessLogin_MouseDown"/>
+            </StackPanel>
         </StackPanel>
     </Border>
 </Window>

@@ -74,6 +74,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocGiaWindow.xaml.cs">
+      <DependentUpon>DocGiaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiSachWindow.xaml.cs">
+      <DependentUpon>LoaiSachWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -126,6 +132,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AccountWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DocGiaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoaiSachWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

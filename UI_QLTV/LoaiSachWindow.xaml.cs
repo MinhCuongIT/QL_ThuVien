@@ -18,15 +18,15 @@ using System.Windows.Shapes;
 namespace UI_QLTV
 {
     /// <summary>
-    /// Màn hình quản lý tải khoản của hệ thống
+    /// Màn hình quản lý loại sách
     /// </summary>
-    public partial class AccountWindow : Window
+    public partial class LoaiSachWindow : Window
     {
         #region Properties
         /// <summary>
         /// Đối tượng cho phép tương tác với CSDL
         /// </summary>
-        private TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
+        private LoaiSachBUS loaiSachBUS = new LoaiSachBUS();
 
         /// <summary>
         /// Đối tượng lưu table tài khoản hiện tại
@@ -39,21 +39,19 @@ namespace UI_QLTV
         private int currIndex = -1;
         #endregion
 
-
         #region Constructor
         /// <summary>
-        /// Hàm dựng mặc định
+        /// Phương thức khởi tạo mặc định
         /// </summary>
-        public AccountWindow()
+        public LoaiSachWindow()
         {
             InitializeComponent();
         }
-
         #endregion
 
         #region Events
         /// <summary>
-        /// Thực hiện tải dữ liệu lên màn hình
+        /// Tải dữ liệu lên grid
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -61,57 +59,24 @@ namespace UI_QLTV
         {
             LoadData();
         }
-
+       
         /// <summary>
-        /// Xử lí điền thông tin khi người dùng click vào grid
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DgAccounts_CurrentCellChanged(object sender, EventArgs e)
-        {
-            if (this.dgAccounts.Items.IndexOf(this.dgAccounts.CurrentItem) >= 0)
-            {
-                this.currIndex = this.dgAccounts.Items.IndexOf(this.dgAccounts.CurrentItem);
-                this.txtUsername.Text = this.dt.Rows[this.currIndex]["Username"].ToString();
-                this.txtPassword.Text = this.dt.Rows[this.currIndex]["Password"].ToString();
-                this.txtTenHienThi.Text = this.dt.Rows[this.currIndex]["TenHienThi"].ToString();
-                if ((bool)this.dt.Rows[this.currIndex]["VaiTro"])
-                {
-                    this.rbAdmin.IsChecked = true;
-                }
-                else
-                {
-                    this.rbThuThu.IsChecked = true;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Xử lý thêm tài khoản
+        /// Xử lý thêm một loại sách vào hệ thống
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnThem_Click(object sender, RoutedEventArgs e)
         {
-            bool isAdmin = false;
-            if ((this.rbAdmin.IsChecked).HasValue && (this.rbAdmin.IsChecked).Value)
-            {
-                isAdmin = true;
-            }
-            TaiKhoanDTO obj = new TaiKhoanDTO()
-            {
-                Username = this.txtUsername.Text,
-                Password = this.txtPassword.Text,
-                TenHienThi = this.txtTenHienThi.Text,
-                VaiTro = isAdmin
+            LoaiSachDTO loaiSach = new LoaiSachDTO() {
+                TenLoaiSach = this.txtLoaiSach.Text
             };
             try
             {
-                if (this.taiKhoanBUS.Insert(obj))
+                if (this.loaiSachBUS.Insert(loaiSach))
                 {
                     MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                    resetAllTextbox();
                     LoadData();
+                    this.txtLoaiSach.Clear();
                 }
                 else
                 {
@@ -121,11 +86,12 @@ namespace UI_QLTV
             catch (Exception ex)
             {
                 MessageBox.Show("Không thể thêm!\n" + ex.Message, "Thông báo", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
             }
         }
 
         /// <summary>
-        /// Xử lý cập nhật tài khoản
+        /// Xử lý thêm một loại sách trong hệ thống
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -138,27 +104,18 @@ namespace UI_QLTV
             }
             if (MessageBox.Show("Bạn có chắc chắn không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                bool isAdmin = false;
-                if ((this.rbAdmin.IsChecked).HasValue && (this.rbAdmin.IsChecked).Value)
+                LoaiSachDTO loaiSach = new LoaiSachDTO()
                 {
-                    isAdmin = true;
-                }
-                TaiKhoanDTO obj = new TaiKhoanDTO()
-                {
-                    IdTaiKhoan = (int)this.dt.Rows[this.currIndex]["IdTaiKhoan"],
-                    Username = this.txtUsername.Text,
-                    Password = this.txtPassword.Text,
-                    TenHienThi = this.txtTenHienThi.Text,
-                    VaiTro = isAdmin
+                    IdLoaiSach = (int)this.dt.Rows[this.currIndex]["IdLoaiSach"],
+                    TenLoaiSach = this.txtLoaiSach.Text
                 };
                 try
                 {
-                    if (this.taiKhoanBUS.Update(obj))
+                    if (this.loaiSachBUS.Update(loaiSach))
                     {
                         MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                        resetAllTextbox();
                         LoadData();
-                        this.currIndex = -1;
+                    this.txtLoaiSach.Clear();
                     }
                     else
                     {
@@ -172,8 +129,9 @@ namespace UI_QLTV
                 }
             }
         }
+
         /// <summary>
-        /// Xử lý xóa tài khoản
+        /// Xử lý xóa một Loại sách trong hệ thống
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -186,19 +144,17 @@ namespace UI_QLTV
             }
             if (MessageBox.Show("Bạn có chắc chắn không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                TaiKhoanDTO obj = new TaiKhoanDTO()
+                LoaiSachDTO loaiSach = new LoaiSachDTO()
                 {
-                    IdTaiKhoan = (int)this.dt.Rows[this.currIndex]["IdTaiKhoan"],
-                    Username = this.txtUsername.Text,
-                    Password = this.txtPassword.Text,
-                    TenHienThi = this.txtTenHienThi.Text,
+                    IdLoaiSach = (int)this.dt.Rows[this.currIndex]["IdLoaiSach"],
+                    TenLoaiSach = this.txtLoaiSach.Text
                 };
-                if (this.taiKhoanBUS.Delete(obj))
+                if (this.loaiSachBUS.Delete(loaiSach))
                 {
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                    resetAllTextbox();
                     LoadData();
                     this.currIndex = -1;
+                    this.txtLoaiSach.Clear();
                 }
                 else
                 {
@@ -208,42 +164,31 @@ namespace UI_QLTV
         }
 
         /// <summary>
-        /// Xử lý xóa trống các trường để nhập lại
+        /// Xử lý điền thông tin vào textbox khi người dùng click vào phần tử trên grid
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        private void DgLoaiSach_CurrentCellChanged(object sender, EventArgs e)
         {
-            resetAllTextbox();
+            if (this.dgLoaiSach.Items.IndexOf(this.dgLoaiSach.CurrentItem) >= 0)
+            {
+                this.currIndex = this.dgLoaiSach.Items.IndexOf(this.dgLoaiSach.CurrentItem);
+                this.txtLoaiSach.Text = this.dt.Rows[this.currIndex]["TenLoaiSach"].ToString();
+            }
         }
         #endregion
 
         #region Methods
         /// <summary>
-        /// Thực hiện tải dữ liệu từ dưới CSDL lên grid
+        /// Thực hiện tải dữ liệu từ CSDL
         /// </summary>
         private void LoadData()
         {
-            this.dt = taiKhoanBUS.GetAllData();
-            this.dgAccounts.ItemsSource = dt.DefaultView;
-            this.dgAccounts.Columns[0].IsReadOnly = true;
-            this.dgAccounts.Columns[0].Header = "#";
-            this.dgAccounts.Columns[1].Header = "Tên đăng nhập";
-            this.dgAccounts.Columns[2].Header = "Mật khẩu";
-            this.dgAccounts.Columns[3].Header = "Tên hiển thị";
-            this.dgAccounts.Columns[4].Header = "Administrator";
-        }
-
-        /// <summary>
-        /// Xóa trống các trường dữ liệu
-        /// </summary>
-        private void resetAllTextbox()
-        {
-            this.txtUsername.Clear();
-            this.txtPassword.Clear();
-            this.txtTenHienThi.Clear();
-            this.rbAdmin.IsChecked = false;
-            this.rbThuThu.IsChecked = false;
+            this.dt = this.loaiSachBUS.GetAllData();
+            this.dgLoaiSach.ItemsSource = dt.DefaultView;
+            this.dgLoaiSach.Columns[0].IsReadOnly = true;
+            this.dgLoaiSach.Columns[0].Header = "#";
+            this.dgLoaiSach.Columns[1].Header = "Loại sách";
         }
         #endregion
 

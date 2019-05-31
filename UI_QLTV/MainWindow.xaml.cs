@@ -43,11 +43,6 @@ namespace UI_QLTV
             this.loginWindow.Show();
         }
 
-        private void BtnAbout_Click(object sender, RoutedEventArgs e)
-        {
-             
-        }
-
         #region Events
         /// <summary>
         /// Xử lí hiện đồng hồ để bàn
@@ -62,7 +57,7 @@ namespace UI_QLTV
         }
         #endregion
 
-        private void BtnAbout_Click_1(object sender, RoutedEventArgs e)
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
         {
             AboutWindow aboutWindow = new AboutWindow();
             aboutWindow.ShowDialog();
@@ -72,6 +67,33 @@ namespace UI_QLTV
         {
             AccountWindow accountWindow = new AccountWindow();
             accountWindow.ShowDialog();
+        }
+
+        private void BtnDocGia_Click(object sender, RoutedEventArgs e)
+        {
+            DocGiaWindow docGiaWindow = new DocGiaWindow();
+            docGiaWindow.ShowDialog();
+        }
+
+        private void BtnThongKe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLapPhieu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSach_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLoaiSach_Click(object sender, RoutedEventArgs e)
+        {
+            LoaiSachWindow loaiSachWindow = new LoaiSachWindow();
+            loaiSachWindow.ShowDialog();
         }
     }
 }
