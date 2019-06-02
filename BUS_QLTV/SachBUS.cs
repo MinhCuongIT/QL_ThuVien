@@ -19,6 +19,11 @@ namespace BUS_QLTV
             return sachDAO.GetAllData();
         }
 
+        public DataTable GetSachByLoaiSach(int idLoaiSach)
+        {
+            return sachDAO.GetSachByLoaiSach(idLoaiSach);
+        }
+
         public bool Insert(SachDTO sach)
         {
             if (Invalid(sach.IdLoaiSach.ToString()) ||

@@ -13,7 +13,19 @@ namespace DAO_QLTV
     {
         public DataTable GetAllData()
         {
-            string sql = "SELECT * FROM Sach";
+            string sql = "SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien, s.SoLuongTong, s.SoLuongConLai, s.IdSach " +
+                "FROM Sach s LEFT JOIN LoaiSach ls ON s.IdLoaiSach = ls.IdLoaiSach";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        public DataTable GetSachByLoaiSach(int idLoaiSach)
+        {
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien, s.SoLuongTong, s.SoLuongConLai, s.IdSach " +
+                $"FROM Sach s LEFT JOIN LoaiSach ls ON s.IdLoaiSach = ls.IdLoaiSach " +
+                $"WHERE ls.IdLoaisach = {idLoaiSach}";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -57,10 +69,8 @@ namespace DAO_QLTV
             try
             {
                 connection.Open();
-                //@idLoaisach, @ngonNgu, @nhaXuatBan, @tenSach, @ngayNhap, @giaTien, @soLuongTong, @soLuongConLai
-                string sql = "UPDATE Sach SET IdLoaiSach = @idLoaisach, NgonNgu = @ngonNgu, NhaXuatBan = @nhaXuatBan, TenSach = @tenSach, NgayNhap = @ngayNhap, GiaTien = @giaTien, SoLuongTong = @soLuongTong, SoLuongConLai = @soLuongConLai WHERE IdSach = @id";
+                string sql = "UPDATE Sach SET NgonNgu = @ngonNgu, NhaXuatBan = @nhaXuatBan, TenSach = @tenSach, NgayNhap = @ngayNhap, GiaTien = @giaTien, SoLuongTong = @soLuongTong, SoLuongConLai = @soLuongConLai WHERE IdSach = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@idLoaisach", sach.IdLoaiSach);
                 command.Parameters.AddWithValue("@ngonNgu", sach.NgonNgu);
                 command.Parameters.AddWithValue("@nhaXuatBan", sach.NhaXuatBan);
                 command.Parameters.AddWithValue("@tenSach", sach.TenSach);

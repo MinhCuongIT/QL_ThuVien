@@ -184,6 +184,11 @@ namespace UI_QLTV
                 MessageBox.Show("Vui lòng chọn đối tượng cần để xóa!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 return;
             }
+            if (this.txtUsername.Text.Equals("admin"))
+            {
+                MessageBox.Show("Bạn không thể xóa quản trị viên này!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (MessageBox.Show("Bạn có chắc chắn không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 TaiKhoanDTO obj = new TaiKhoanDTO()

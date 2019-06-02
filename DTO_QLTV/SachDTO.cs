@@ -13,7 +13,7 @@ namespace DTO_QLTV
         private string ngonNgu;
         private string nhaXuatBan;
         private string tenSach;
-        private DateTime ngayNhap;
+        private string ngayNhap;
         private int giaTien;
         private int soLuongTong;
         private int soLuongConLai;
@@ -22,7 +22,7 @@ namespace DTO_QLTV
         {
         }
 
-        public SachDTO(int id, int idLoaiSach, string ngonNgu, string nhaXuatBan, string tenSach, DateTime ngayNhap, int giaTien, int soLuongTong, int soLuongConLai)
+        public SachDTO(int id, int idLoaiSach, string ngonNgu, string nhaXuatBan, string tenSach, string ngayNhap, int giaTien, int soLuongTong, int soLuongConLai)
         {
             this.id = id;
             this.idLoaiSach = idLoaiSach;
@@ -40,7 +40,7 @@ namespace DTO_QLTV
         public string NgonNgu { get => ngonNgu; set => ngonNgu = value; }
         public string NhaXuatBan { get => nhaXuatBan; set => nhaXuatBan = value; }
         public string TenSach { get => tenSach; set => tenSach = value; }
-        public DateTime NgayNhap { get => ngayNhap; set => ngayNhap = value; }
+        public string NgayNhap { get => ngayNhap; set => ngayNhap = value; }
         public int GiaTien { get => giaTien; set => giaTien = value; }
         public int SoLuongTong { get => soLuongTong; set => soLuongTong = value; }
         public int SoLuongConLai { get => soLuongConLai; set => soLuongConLai = value; }

@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <materialDesign:Card Grid.Row="0" Margin="5" FontSize="15">
             <WrapPanel Margin="0 0 0 10">
-                <TextBox IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtUsername" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đăng nhập"/>
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtUsername" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đăng nhập"/>
                 <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtPassword" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mật khẩu"/>
                 <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtTenHienThi" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên hiển thị"/>
                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal">

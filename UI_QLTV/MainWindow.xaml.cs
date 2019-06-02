@@ -15,11 +15,19 @@ using System.Windows.Shapes;
 namespace UI_QLTV
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Màn hình quản lý chính
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Đối tượng lưu giữ màn hình Login truyền vào
+        /// </summary>
         LoginWindow loginWindow = new LoginWindow();
+        #region Constructor
+        /// <summary>
+        /// Phương thức khởi tạo mặc định
+        /// </summary>
+        /// <param name="loginWindow"></param>
         public MainWindow(LoginWindow loginWindow)
         {
             this.loginWindow = loginWindow;
@@ -37,11 +45,8 @@ namespace UI_QLTV
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Start();
         }
+        #endregion
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            this.loginWindow.Show();
-        }
 
         #region Events
         /// <summary>
@@ -55,45 +60,91 @@ namespace UI_QLTV
             this.txtDate.Content = s + ", " + Convert.ToString(DateTime.Now.Date).Substring(0, 10);
             this.txtTime.Content = Convert.ToString(DateTime.Now.TimeOfDay).Substring(0, 8);
         }
-        #endregion
+        /// <summary>
+        /// Xử lý gọi màn hình login khi đóng màn hình quản lý
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.loginWindow.Show();
+        }
 
+        /// <summary>
+        /// Xử lý gọi màn hình thông tin về phần mềm này
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAbout_Click(object sender, RoutedEventArgs e)
         {
             AboutWindow aboutWindow = new AboutWindow();
             aboutWindow.ShowDialog();
         }
 
+        /// <summary>
+        /// Xử lý gọi màn hình quản lý tài khoản
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnQuanLyTaiKhoan_Click(object sender, RoutedEventArgs e)
         {
             AccountWindow accountWindow = new AccountWindow();
             accountWindow.ShowDialog();
         }
 
+        /// <summary>
+        /// Xử lý gọi màn hình quản lý đọc giả
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnDocGia_Click(object sender, RoutedEventArgs e)
         {
             DocGiaWindow docGiaWindow = new DocGiaWindow();
             docGiaWindow.ShowDialog();
         }
 
+        /// <summary>
+        /// Xử lý gọi màn hình quản lập phiếu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnThongKe_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Xử lý gọi màn hình lập phiếu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnLapPhieu_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Xử lý gọi màn hình quản lý Sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSach_Click(object sender, RoutedEventArgs e)
         {
-
+            SachWindow sachWindow = new SachWindow();
+            sachWindow.ShowDialog();
         }
 
+        /// <summary>
+        /// Xử lý gọi màn hình quản lý loại sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnLoaiSach_Click(object sender, RoutedEventArgs e)
         {
             LoaiSachWindow loaiSachWindow = new LoaiSachWindow();
             loaiSachWindow.ShowDialog();
         }
+        #endregion
+
     }
 }
