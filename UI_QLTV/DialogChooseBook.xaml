@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         Closing="Window_Closing"
+        ResizeMode="NoResize"
         Title="Chọn sách" Height="450" Width="500">
     <Grid>
         <Grid.RowDefinitions>

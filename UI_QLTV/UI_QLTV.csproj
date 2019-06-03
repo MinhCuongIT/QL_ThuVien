@@ -72,14 +72,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DanhSachPhieuMuonWindow.xaml.cs">
+      <DependentUpon>DanhSachPhieuMuonWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogChooseBook.xaml.cs">
       <DependentUpon>DialogChooseBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogTraSach.xaml.cs">
+      <DependentUpon>DialogTraSach.xaml</DependentUpon>
     </Compile>
     <Compile Include="MuonSachWindow.xaml.cs">
       <DependentUpon>MuonSachWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SachWindow.xaml.cs">
       <DependentUpon>SachWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TraSachWindow.xaml.cs">
+      <DependentUpon>TraSachWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +153,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DanhSachPhieuMuonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogChooseBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogTraSach.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SachWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TraSachWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

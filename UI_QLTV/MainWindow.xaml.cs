@@ -169,7 +169,8 @@ namespace UI_QLTV
         /// <param name="e"></param>
         private void m_XemDanhSach_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Xem danh sach!");
+            DanhSachPhieuMuonWindow danhSachPhieuMuonWindow = new DanhSachPhieuMuonWindow();
+            danhSachPhieuMuonWindow.ShowDialog();
         }
 
         /// <summary>
@@ -179,7 +180,8 @@ namespace UI_QLTV
         /// <param name="e"></param>
         private void m_TraLaiSach_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Tra lai sach!");
+            TraSachWindow traSachWindow = new TraSachWindow();
+            traSachWindow.ShowDialog();
         }
         #endregion
 

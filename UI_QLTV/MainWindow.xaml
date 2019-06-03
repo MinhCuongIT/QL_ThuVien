@@ -71,7 +71,7 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-                                <TextBlock Text="Lập phiếu" HorizontalAlignment="Center"></TextBlock>
+                                <TextBlock Text="Quản Lý Phiếu" HorizontalAlignment="Center"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.RowDefinitions>

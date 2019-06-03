@@ -16,17 +16,28 @@ namespace BUS_QLTV
 
         public DataTable GetAllData()
         {
-            
+
             return phieuMuonDAO.GetAllData();
         }
-
+        public DataTable GetDataByIdDocGia(int id)
+        {
+            return phieuMuonDAO.GetDataByIdDocGia(id);
+        }
+        public DataTable SearchByCmnd(string cmnd)
+        {
+            return phieuMuonDAO.SearchByCmnd(cmnd);
+        }
+        public DataTable SearchByName(string name)
+        {
+            return phieuMuonDAO.SearchByName(name);
+        }
         public int Insert(PhieuMuonDTO phieuMuon)
         {
             if (Invalid(
                 phieuMuon.IdDocGia.ToString()) ||
-                phieuMuon.NgayMuon == null||
                 phieuMuon.NgayMuon == null ||
-                phieuMuon.NgayTraLyThuyet == null||
+                phieuMuon.NgayMuon == null ||
+                phieuMuon.NgayTraLyThuyet == null ||
                 phieuMuon.TienCoc == null)
             {
                 return -1;
@@ -49,6 +60,11 @@ namespace BUS_QLTV
             }
 
             return phieuMuonDAO.Update(phieuMuon);
+        }
+
+        public bool UpdateDayRelease(int id, DateTime d)
+        {
+            return phieuMuonDAO.UpdateDayRelease(id, d);
         }
 
         public bool Delete(PhieuMuonDTO phieuMuon)

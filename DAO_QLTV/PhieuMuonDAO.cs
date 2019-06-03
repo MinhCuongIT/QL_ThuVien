@@ -13,12 +13,49 @@ namespace DAO_QLTV
     {
         public DataTable GetAllData()
         {
-            string sql = "SELECT * FROM PhieuMuon";
+            string sql = "SELECT dg.TenDocGia, pm.NgayMuon, pm.NgayTraLyThuyet, pm.TienCoc, s.TenSach, ct.SoLuongMuon, dg.IdDocGia " +
+                "FROM PhieuMuon pm, PhieuMuonChiTiet ct, DocGia dg, Sach s " +
+                "WHERE pm.IdDocGia = dg.IdDocGia AND pm.IdPhieuMuon = ct.IdPhieuMuon AND ct.IdSach = s.IdSach";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
             return dataTable;
         }
+
+        public DataTable GetDataByIdDocGia(int id)
+        {
+            string sql = $"SELECT * " +
+                $"FROM PhieuMuon " +
+                $"WHERE IdDocGia = {id}";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        public DataTable SearchByName(string name)
+        {
+            string sql = $"SELECT dg.TenDocGia, pm.NgayMuon, pm.NgayTraLyThuyet, pm.TienCoc, s.TenSach, ct.SoLuongMuon, dg.IdDocGia " +
+                $"FROM PhieuMuon pm, PhieuMuonChiTiet ct, DocGia dg, Sach s " +
+                $"WHERE pm.IdDocGia = dg.IdDocGia AND pm.IdPhieuMuon = ct.IdPhieuMuon AND ct.IdSach = s.IdSach AND dg.TenDocGia LIKE N'%{name}%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        public DataTable SearchByCmnd(string cmnd)
+        {
+            string sql = $"SELECT dg.TenDocGia, pm.NgayMuon, pm.NgayTraLyThuyet, pm.TienCoc, s.TenSach, ct.SoLuongMuon, dg.IdDocGia " +
+                $"FROM PhieuMuon pm, PhieuMuonChiTiet ct, DocGia dg, Sach s " +
+                $"WHERE pm.IdDocGia = dg.IdDocGia AND pm.IdPhieuMuon = ct.IdPhieuMuon AND ct.IdSach = s.IdSach AND dg.Cmnd LIKE N'%{cmnd}%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+
 
         public int Insert(PhieuMuonDTO phieuMuon)
         {
@@ -65,6 +102,31 @@ namespace DAO_QLTV
                 }
             }
             catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public bool UpdateDayRelease(int id,DateTime d)
+        {
+            try
+            {
+                connection.Open();
+                string sql = "UPDATE PhieuMuon SET NgayTraThucTe = @ngayTraThucTe WHERE IdDocGia = @id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@ngayTraThucTe", d);
+                command.Parameters.AddWithValue("@id", id);
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
             {
                 return false;
             }
