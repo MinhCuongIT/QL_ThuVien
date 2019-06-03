@@ -81,6 +81,15 @@
                                 <materialDesign:PackIcon  Width="24" Height="24"  HorizontalAlignment="Center"  Kind="CreateNewFolderOutline" Margin="14,0" Grid.RowSpan="2" />
                             </Grid>
                         </Grid>
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Mượn sách" Click="m_MuonSach_Click"/>
+                                <Separator />
+                                <MenuItem Header="Xem danh sách" Click="m_XemDanhSach_Click" />
+                                <Separator />
+                                <MenuItem Header="Trả lại sách" Click="m_TraLaiSach_Click"/>
+                            </ContextMenu>
+                        </Button.ContextMenu>
                     </Button>
                     <Button Name="btnThongKe" Grid.Column="3" ToolTip="Thông kê mượn sách" Click="BtnThongKe_Click">
                         <Grid>

@@ -114,9 +114,10 @@ namespace DAO_QLTV
             try
             {
                 connection.Open();
-                string sql = "SELECT * FROM TaiKhoan WHERE Username = @username";
+                string sql = "SELECT * FROM TaiKhoan WHERE Username = @username AND Password = @password";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@username", taiKhoan.Username);
+                command.Parameters.AddWithValue("@password", taiKhoan.Password);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 if (reader.HasRows)

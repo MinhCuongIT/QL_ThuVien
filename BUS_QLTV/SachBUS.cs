@@ -18,7 +18,10 @@ namespace BUS_QLTV
         {
             return sachDAO.GetAllData();
         }
-
+        public DataTable GetABook(int id)
+        {
+            return sachDAO.GetABook(id);
+        }
         public DataTable GetSachByLoaiSach(int idLoaiSach)
         {
             return sachDAO.GetSachByLoaiSach(idLoaiSach);

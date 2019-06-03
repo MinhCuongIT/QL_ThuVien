@@ -47,6 +47,7 @@ namespace UI_QLTV
             {
                 TaiKhoanDTO taiKhoan = new TaiKhoanDTO() {
                     Username = this.txtUsername.Text,
+                    Password = this.txtPassword.Password,
                 };
                 if (new TaiKhoanBUS().IsExist(taiKhoan) )
                 {

@@ -18,7 +18,7 @@
         <materialDesign:Card Grid.Row="0" Margin="5" FontSize="15">
             <WrapPanel HorizontalAlignment="Center" Margin="0 0 0 10">
                 <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtTenDocGia" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đọc giả"/>
-                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtCmnd" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Chứng minh nhân dân"/>
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtCmnd" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Chứng minh nhân dân" PreviewTextInput="TxtCmnd_PreviewTextInput"/>
                 <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Name="txtDiaChi" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa chỉ"/>
             </WrapPanel>
         </materialDesign:Card>

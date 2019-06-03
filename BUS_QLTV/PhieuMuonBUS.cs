@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BUS_QLTV
 {
-    class PhieuMuonBUS
+    public class PhieuMuonBUS
     {
         PhieuMuonDAO phieuMuonDAO = new PhieuMuonDAO();
 
@@ -20,17 +20,16 @@ namespace BUS_QLTV
             return phieuMuonDAO.GetAllData();
         }
 
-        public bool Insert(PhieuMuonDTO phieuMuon)
+        public int Insert(PhieuMuonDTO phieuMuon)
         {
             if (Invalid(
                 phieuMuon.IdDocGia.ToString()) ||
                 phieuMuon.NgayMuon == null||
                 phieuMuon.NgayMuon == null ||
                 phieuMuon.NgayTraLyThuyet == null||
-                phieuMuon.NgayTraThucTe == null||
                 phieuMuon.TienCoc == null)
             {
-                return false;
+                return -1;
             }
 
             return phieuMuonDAO.Insert(phieuMuon);

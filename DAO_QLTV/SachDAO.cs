@@ -20,7 +20,16 @@ namespace DAO_QLTV
             adapter.Fill(dataTable);
             return dataTable;
         }
-
+        public DataTable GetABook(int id)
+        {
+            string sql = $"SELECT ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.GiaTien " +
+                $"FROM Sach s LEFT JOIN LoaiSach ls ON s.IdLoaiSach = ls.IdLoaiSach " +
+                $"WHERE s.IdSach = {id}";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
         public DataTable GetSachByLoaiSach(int idLoaiSach)
         {
             string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien, s.SoLuongTong, s.SoLuongConLai, s.IdSach " +

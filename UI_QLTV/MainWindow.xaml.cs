@@ -60,6 +60,7 @@ namespace UI_QLTV
             this.txtDate.Content = s + ", " + Convert.ToString(DateTime.Now.Date).Substring(0, 10);
             this.txtTime.Content = Convert.ToString(DateTime.Now.TimeOfDay).Substring(0, 8);
         }
+
         /// <summary>
         /// Xử lý gọi màn hình login khi đóng màn hình quản lý
         /// </summary>
@@ -113,15 +114,6 @@ namespace UI_QLTV
 
         }
 
-        /// <summary>
-        /// Xử lý gọi màn hình lập phiếu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnLapPhieu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// Xử lý gọi màn hình quản lý Sách
@@ -143,6 +135,51 @@ namespace UI_QLTV
         {
             LoaiSachWindow loaiSachWindow = new LoaiSachWindow();
             loaiSachWindow.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý hiện menu khi người dùng nhấn nút
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnLapPhieu_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as FrameworkElement;
+            if (button != null)
+            {
+                button.ContextMenu.IsOpen = true;
+            }
+        }
+
+        /// <summary>
+        /// Xử lý hiện cửa sổ thực hiện tác vụ cho mượn sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_MuonSach_Click(object sender, RoutedEventArgs e)
+        {
+            MuonSachWindow muonSachWindow = new MuonSachWindow();
+            muonSachWindow.ShowDialog();
+        }
+
+        /// <summary>
+        /// Xử lý hiện danh sách những người mượn sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_XemDanhSach_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Xem danh sach!");
+        }
+
+        /// <summary>
+        /// Xử lý thực hiện tác vụ trả lại sách của đọc giả
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void m_TraLaiSach_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Tra lai sach!");
         }
         #endregion
 

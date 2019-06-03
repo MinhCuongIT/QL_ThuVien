@@ -72,6 +72,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DialogChooseBook.xaml.cs">
+      <DependentUpon>DialogChooseBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MuonSachWindow.xaml.cs">
+      <DependentUpon>MuonSachWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SachWindow.xaml.cs">
       <DependentUpon>SachWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +144,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DialogChooseBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DocGiaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MuonSachWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

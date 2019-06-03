@@ -20,33 +20,31 @@ namespace DAO_QLTV
             return dataTable;
         }
 
-        public bool Insert(PhieuMuonDTO phieuMuon)
+        public int Insert(PhieuMuonDTO phieuMuon)
         {
             try
             {
                 connection.Open();
-                string sql = "INSERT INTO PhieuMuon(IdDocGia, NgayMuon, NgayTraLyThuyet, NgayTraThucTe, TienCoc)" +
-                    " VALUES(@idDocGia, @ngayMuon, @ngayTraLyThuyet, @ngayTraThucTe, @tienCoc)";
+                string sql = "INSERT INTO PhieuMuon(IdDocGia, NgayMuon, NgayTraLyThuyet, TienCoc)" +
+                    " OUTPUT INSERTED.IdPhieuMuon" +
+                    " VALUES(@idDocGia, @ngayMuon, @ngayTraLyThuyet, @tienCoc)";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@idDocGia", phieuMuon.IdDocGia);
                 command.Parameters.AddWithValue("@ngayMuon", phieuMuon.NgayMuon);
                 command.Parameters.AddWithValue("@ngayTraLyThuyet", phieuMuon.NgayTraLyThuyet);
-                command.Parameters.AddWithValue("@ngayTraThucTe", phieuMuon.NgayTraThucTe);
                 command.Parameters.AddWithValue("@tienCoc", phieuMuon.TienCoc);
-                if (command.ExecuteNonQuery() > 0)
-                {
-                    return true;
-                }
+                
+                return (int)command.ExecuteScalar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                return -1;
             }
             finally
             {
                 connection.Close();
             }
-            return false;
+            return -1;
         }
 
         public bool Update(PhieuMuonDTO phieuMuon)

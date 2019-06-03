@@ -10,9 +10,9 @@ namespace DTO_QLTV
     {
         private int idPhieuMuon;
         private int idDocGia;
-        private DateTime ngayMuon;
-        private DateTime ngayTraLyThuyet;
-        private DateTime ngayTraThucTe;
+        private string ngayMuon;
+        private string ngayTraLyThuyet;
+        private string ngayTraThucTe;
         private int tienCoc;
 
 
@@ -20,7 +20,7 @@ namespace DTO_QLTV
         {
         }
 
-        public PhieuMuonDTO(int idPhieuMuon, int idDocGia, DateTime ngayMuon, DateTime ngayTraLyThuyet, DateTime ngayTraThucTe, int tienCoc)
+        public PhieuMuonDTO(int idPhieuMuon, int idDocGia, string ngayMuon, string ngayTraLyThuyet, string ngayTraThucTe, int tienCoc)
         {
             this.idPhieuMuon = idPhieuMuon;
             this.idDocGia = idDocGia;
@@ -32,9 +32,9 @@ namespace DTO_QLTV
 
         public int IdPhieuMuon { get => idPhieuMuon; set => idPhieuMuon = value; }
         public int IdDocGia { get => idDocGia; set => idDocGia = value; }
-        public DateTime NgayMuon { get => ngayMuon; set => ngayMuon = value; }
-        public DateTime NgayTraLyThuyet { get => ngayTraLyThuyet; set => ngayTraLyThuyet = value; }
-        public DateTime NgayTraThucTe { get => ngayTraThucTe; set => ngayTraThucTe = value; }
+        public string NgayMuon { get => ngayMuon; set => ngayMuon = value; }
+        public string NgayTraLyThuyet { get => ngayTraLyThuyet; set => ngayTraLyThuyet = value; }
+        public string NgayTraThucTe { get => ngayTraThucTe; set => ngayTraThucTe = value; }
         public int TienCoc { get => tienCoc; set => tienCoc = value; }
     }
 }
