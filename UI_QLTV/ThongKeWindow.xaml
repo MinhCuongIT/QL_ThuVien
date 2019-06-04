@@ -1,0 +1,82 @@
+﻿<Window x:Class="UI_QLTV.ThongKeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:local="clr-namespace:UI_QLTV"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        Title="Thống kê" Height="700" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <DatePicker SelectedDateFormat="Short" Name="dpFromDate" Margin="5 5 15 5" Width="100" materialDesign:HintAssist.Hint="Từ ngày" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <DatePicker Name="dpToDate" Margin="5 5 15 5" Width="100" materialDesign:HintAssist.Hint="Đến ngày" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <Button Name="btnThongKe" Click="BtnThongKe_Click" Content="Thống kê" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Mặc định sẽ thống kê theo tháng hoặc có thể chọn ngày để thống kê"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--Cột bên trái-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <chartingToolkit:Chart Name="pieChart" Title="Tỉ lệ giữa các loại sách có trong thư viện">
+                        <chartingToolkit:PieSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" IsSelectionEnabled="True"/>
+                    </chartingToolkit:Chart>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Thống kê chung trong tháng" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                    <StackPanel Grid.Row="1">
+                        <TextBox IsReadOnly="True" Name="txtTongSoSachChoMuon"  Margin="3" materialDesign:HintAssist.Hint="Tổng số sách cho mượn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold"/>
+                        <TextBox IsReadOnly="True" Name="txtTongSoDocGia"       Margin="3" materialDesign:HintAssist.Hint="Tổng số lượng đọc giả mượn sách" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold"/>
+                        <TextBox IsReadOnly="True" Name="txtTongDGDungHan"      Margin="3" materialDesign:HintAssist.Hint="Tổng đọc giả trả đúng hạn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold"/>
+                        <TextBox IsReadOnly="True" Name="txtTongDGTreHan"       Margin="3" materialDesign:HintAssist.Hint="Tống đọc giả trả trễ hạn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold"/>
+                        <TextBox IsReadOnly="True" Name="txtTongSoSachTrongKho" Margin="3" materialDesign:HintAssist.Hint="Tổng số sách trong kho" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold"/>
+                        <TextBox IsReadOnly="True" Name="txtTongSoSachConLai"   Margin="3" materialDesign:HintAssist.Hint="Tổng số sách còn lại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <!--Cột bên phải-->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <chartingToolkit:Chart Name="columnChart" Title="Tỉ lệ sách được mượn trong tháng">
+                        <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" DataContext="{Binding}" ItemsSource="{Binding}" />
+                    </chartingToolkit:Chart>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="BXH Top 10 đọc giả trong tháng" Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
+                    <Grid Grid.Row="1">
+                        <!--Chứa list bảng xếp hạnh-->
+                        <DataGrid IsReadOnly="True" CanUserSortColumns="False" CanUserAddRows="False" Name="dgBXH"  Margin="5"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

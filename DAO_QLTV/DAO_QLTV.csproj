@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SachDAO.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
+    <Compile Include="ThongKeDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO_QLTV\DTO_QLTV.csproj">

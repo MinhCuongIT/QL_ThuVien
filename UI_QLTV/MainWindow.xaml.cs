@@ -111,7 +111,8 @@ namespace UI_QLTV
         /// <param name="e"></param>
         private void BtnThongKe_Click(object sender, RoutedEventArgs e)
         {
-
+            ThongKeWindow thongKeWindow = new ThongKeWindow();
+            thongKeWindow.ShowDialog();
         }
 
 

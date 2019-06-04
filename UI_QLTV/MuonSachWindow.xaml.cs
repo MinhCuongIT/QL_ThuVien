@@ -94,28 +94,34 @@ namespace UI_QLTV
         /// <param name="e"></param>
         private void BtnXuatPhieu_Click(object sender, RoutedEventArgs e)
         {
-
-            if (this.cbDocGia.SelectedValue == null)
-            {
-                MessageBox.Show("Chưa chọn đọc giả!");
-                return;
-            }
-            if (tinhTongSoLuong() == 0)
-            {
-                MessageBox.Show("Không có sách mượn!");
-                return;
-            }
-            if (string.IsNullOrEmpty(this.dpNgayMuon.Text) ||
-                string.IsNullOrEmpty(this.dpNgayTraLyThuyet.Text)||
-                string.IsNullOrEmpty(this.txtTienCoc.Text))
-            {
-                MessageBox.Show("Vui lòng kiểm tra lại các trường trên!");
-                return;
-            }
             try
             {
+                if (this.cbDocGia.SelectedValue == null)
+                {
+                    MessageBox.Show("Chưa chọn đọc giả!");
+                    return;
+                }
+                if (!(new PhieuMuonBUS().IsValid((int)this.cbDocGia.SelectedValue)))
+                {
+                    MessageBox.Show("Đọc giả này hiện đang mượn sách mà chưa trả lại!");
+                    return;
+                }
+                if (tinhTongSoLuong() == 0)
+                {
+                    MessageBox.Show("Không có sách mượn!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(this.dpNgayMuon.Text) ||
+                    string.IsNullOrEmpty(this.dpNgayTraLyThuyet.Text) ||
+                    string.IsNullOrEmpty(this.txtTienCoc.Text))
+                {
+                    MessageBox.Show("Vui lòng kiểm tra lại các trường trên!");
+                    return;
+                }
+
                 //Thêm dữ liệu vào bảng phiếu mượn
-                PhieuMuonDTO phieuMuonDTO = new PhieuMuonDTO() {
+                PhieuMuonDTO phieuMuonDTO = new PhieuMuonDTO()
+                {
                     IdDocGia = (int)this.cbDocGia.SelectedValue,
                     NgayMuon = this.dpNgayMuon.Text,
                     NgayTraLyThuyet = this.dpNgayTraLyThuyet.Text,
@@ -130,7 +136,8 @@ namespace UI_QLTV
                 //Thêm dữ liệu vào bảng phiếu mượn chi tiết
                 foreach (DataRow dtRow in tableBooks.Rows)
                 {
-                    PhieuMuonChiTietDTO phieuMuonChiTiet = new PhieuMuonChiTietDTO() {
+                    PhieuMuonChiTietDTO phieuMuonChiTiet = new PhieuMuonChiTietDTO()
+                    {
                         IdPhieuMuon = idPhieuMuon,
                         IdSach = int.Parse(dtRow["Mã sách"].ToString()),
                         SoLuongMuon = int.Parse(dtRow["Số lượng"].ToString())

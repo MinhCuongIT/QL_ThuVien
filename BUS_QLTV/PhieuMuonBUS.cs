@@ -19,18 +19,22 @@ namespace BUS_QLTV
 
             return phieuMuonDAO.GetAllData();
         }
+
         public DataTable GetDataByIdDocGia(int id)
         {
             return phieuMuonDAO.GetDataByIdDocGia(id);
         }
+
         public DataTable SearchByCmnd(string cmnd)
         {
             return phieuMuonDAO.SearchByCmnd(cmnd);
         }
+
         public DataTable SearchByName(string name)
         {
             return phieuMuonDAO.SearchByName(name);
         }
+
         public int Insert(PhieuMuonDTO phieuMuon)
         {
             if (Invalid(
@@ -75,6 +79,21 @@ namespace BUS_QLTV
         public bool IsExist(PhieuMuonDTO phieuMuon)
         {
             return phieuMuonDAO.IsExist(phieuMuon);
+        }
+
+        public bool IsExistDocGia(int idDocGia)
+        {
+            return phieuMuonDAO.IsExistDocGia(idDocGia);
+        }
+
+        public bool IsValid(int idDocGia)
+        {
+            return phieuMuonDAO.IsValid(idDocGia);
+        }
+
+        public bool IsTraSachRoi(int idDocGia)
+        {
+            return phieuMuonDAO.IsTraSachRoi(idDocGia);
         }
 
         #region Methods

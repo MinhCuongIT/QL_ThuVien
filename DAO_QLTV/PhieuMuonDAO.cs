@@ -55,8 +55,6 @@ namespace DAO_QLTV
             return dataTable;
         }
 
-
-
         public int Insert(PhieuMuonDTO phieuMuon)
         {
             try
@@ -169,6 +167,96 @@ namespace DAO_QLTV
                 string sql = "SELECT * FROM PhieuMuon WHERE IdPhieuMuon = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", phieuMuon.IdPhieuMuon);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public bool IsExistDocGia(int idDocGia)
+        {
+            try
+            {
+                connection.Open();
+                string sql = "SELECT * FROM PhieuMuon WHERE IdDocGia = @id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", idDocGia);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public bool IsValid(int idDocGia)
+        {
+            try
+            {
+                connection.Open();
+                string sql = "SELECT * FROM PhieuMuon pm WHERE pm.IdDocGia = @id AND pm.NgayTraThucTe IS NULL ";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", idDocGia);
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public bool IsTraSachRoi(int idDocGia)
+        {
+            try
+            {
+                connection.Open();
+                string sql = "SELECT * FROM PhieuMuon WHERE IdDocGia = @id AND NgayTraThucTe IS NOT NULL";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", idDocGia);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 if (reader.HasRows)

@@ -82,8 +82,15 @@ namespace UI_QLTV
             {
                 int idDocGia = (int)this.tableSearch.Rows[index]["IdDocGia"];
                 string name = this.tableSearch.Rows[index]["TenDocGia"].ToString();
-                DialogTraSach dialogTraSach = new DialogTraSach(idDocGia, name);
-                dialogTraSach.ShowDialog();
+                if ((new PhieuMuonBUS().IsTraSachRoi(idDocGia)))
+                {
+                    MessageBox.Show("Đọc giả này đã trả sách rồi!");
+                }
+                else
+                {
+                    DialogTraSach dialogTraSach = new DialogTraSach(idDocGia, name);
+                    dialogTraSach.ShowDialog();
+                }
             }
         }
     }

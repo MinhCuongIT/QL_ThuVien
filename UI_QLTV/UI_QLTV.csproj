@@ -44,6 +44,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -86,6 +89,9 @@
     </Compile>
     <Compile Include="SachWindow.xaml.cs">
       <DependentUpon>SachWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeWindow.xaml.cs">
+      <DependentUpon>ThongKeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TraSachWindow.xaml.cs">
       <DependentUpon>TraSachWindow.xaml</DependentUpon>
@@ -186,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SachWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThongKeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
