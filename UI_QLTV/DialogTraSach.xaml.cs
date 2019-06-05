@@ -72,7 +72,7 @@ namespace UI_QLTV
                 new PhieuMuonBUS().UpdateDayRelease(this.idDocGia, ngayTraThucTe);
                 if (c2 < 0)
                 {
-                    MessageBox.Show("Sách trả đúng thờ hạn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Sách trả đúng thời hạn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {

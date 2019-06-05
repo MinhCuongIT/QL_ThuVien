@@ -136,6 +136,11 @@ namespace UI_QLTV
                 MessageBox.Show("Vui lòng chọn đối tượng cần để cập nhật!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 return;
             }
+            if (this.rbThuThu.IsChecked == true && this.txtUsername.Text.Equals("admin"))
+            {
+                MessageBox.Show("Bạn không thể cập nhật quản trị viên này thành thủ thư!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (MessageBox.Show("Bạn có chắc chắn không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 bool isAdmin = false;
