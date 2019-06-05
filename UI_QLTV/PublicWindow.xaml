@@ -1,0 +1,74 @@
+﻿<Window x:Class="UI_QLTV.PublicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_QLTV"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        Title="Xin chào!" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Margin="10 0" VerticalAlignment="Center" Height="30" Width="20" Kind="FormatListCheckbox" />
+                <ComboBox VerticalAlignment="Center" Name="cbLoaiSach" FontSize="15" materialDesign:HintAssist.Hint="Chọn loại sách" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="CbLoaiSach_SelectionChanged"></ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1"  HorizontalAlignment="Center" >
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock FontSize="15" Text="Lọc theo:"/>
+                <RadioButton IsChecked="True" Name="rbTenSach" Margin="10 0" Style="{StaticResource MaterialDesignRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Notebook" />
+                        <TextBlock>Tên sách</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Name="rbNgonNgu" Margin="10 0" Style="{StaticResource MaterialDesignRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Language" />
+                        <TextBlock>Ngôn ngữ</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Name="rbNhaXuatBan" Margin="10 0" Style="{StaticResource MaterialDesignRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="HouseCircle" />
+                        <TextBlock>Nhà xuất bản</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Name="rbGiaTien" Margin="10 0" Style="{StaticResource MaterialDesignRadioButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Money" />
+                        <TextBlock>Giá tiền</TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" HorizontalAlignment="Center">
+            <StackPanel  Orientation="Horizontal">
+                <materialDesign:PackIcon VerticalAlignment="Center" Margin="10 0" Height="30" Width="30" Kind="FolderSearchOutline" />
+                <TextBox materialDesign:HintAssist.Hint="Nhập nội dung lọc" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Name="txtSearch" Width="250"></TextBox>
+                <Button HorizontalAlignment="Center" Cursor="Hand" ToolTip="Lọc sách" Name="btnLoc" Click="BtnLoc_Click" Foreground="White" Margin="10 5" Background="#3F7DE9">
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Height="30" Width="30" Kind="FilterVariant" VerticalAlignment="Center" />
+                        <TextBlock FontSize="17" Text="Lọc" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">
+            <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" SelectionUnit="FullRow" Name="dgResutl">
+
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>

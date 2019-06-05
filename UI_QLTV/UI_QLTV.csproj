@@ -87,6 +87,9 @@
     <Compile Include="MuonSachWindow.xaml.cs">
       <DependentUpon>MuonSachWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PublicWindow.xaml.cs">
+      <DependentUpon>PublicWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SachWindow.xaml.cs">
       <DependentUpon>SachWindow.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MuonSachWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PublicWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

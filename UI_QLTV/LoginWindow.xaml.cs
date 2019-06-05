@@ -33,7 +33,9 @@ namespace UI_QLTV
 
         private void LblGuessLogin_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Đăng nhập với chế độ public");
+            PublicWindow publicWindow = new PublicWindow(this);
+            this.Hide();
+            publicWindow.Show();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
