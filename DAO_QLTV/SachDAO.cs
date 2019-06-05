@@ -34,9 +34,9 @@ namespace DAO_QLTV
 
         public DataTable GetSachByLoaiSach(int idLoaiSach)
         {
-            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.IdSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien " +
-                $"FROM Sach s, LoaiSach ls " +
-                $"WHERE ls.IdLoaiSach = s.IdLoaiSach AND ls.IdLoaiSach = {idLoaiSach}";
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien, s.SoLuongTong, s.SoLuongConLai, s.IdSach " +
+                $"FROM Sach s LEFT JOIN LoaiSach ls ON s.IdLoaiSach = ls.IdLoaiSach " +
+                $"WHERE ls.IdLoaisach = {idLoaiSach}";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);

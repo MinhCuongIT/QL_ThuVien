@@ -70,7 +70,7 @@ namespace UI_QLTV
             }
             else
             {
-                this.dgResutl.ItemsSource = new SachBUS().GetSachByLoaiSach((int)this.cbLoaiSach.SelectedValue).DefaultView;
+                this.dgResutl.ItemsSource = new SachBUS().FillByIdLoaiSach((int)this.cbLoaiSach.SelectedValue).DefaultView;
                 this.dgResutl.Columns[0].Header = "Mã Loại Sách";
                 this.dgResutl.Columns[1].Header = "Tên Loại Sách";
                 this.dgResutl.Columns[2].Header = "Mã Loại Sách";
