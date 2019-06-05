@@ -45,18 +45,12 @@
                         <TextBlock>Nhà xuất bản</TextBlock>
                     </StackPanel>
                 </RadioButton>
-                <RadioButton Name="rbGiaTien" Margin="10 0" Style="{StaticResource MaterialDesignRadioButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Money" />
-                        <TextBlock>Giá tiền</TextBlock>
-                    </StackPanel>
-                </RadioButton>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2" HorizontalAlignment="Center">
             <StackPanel  Orientation="Horizontal">
                 <materialDesign:PackIcon VerticalAlignment="Center" Margin="10 0" Height="30" Width="30" Kind="FolderSearchOutline" />
-                <TextBox materialDesign:HintAssist.Hint="Nhập nội dung lọc" TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Name="txtSearch" Width="250"></TextBox>
+                <TextBox TextAlignment="Center" VerticalAlignment="Center" FontSize="14" Name="txtSearch" Width="250" TextChanged="TxtSearch_TextChanged"></TextBox>
                 <Button HorizontalAlignment="Center" Cursor="Hand" ToolTip="Lọc sách" Name="btnLoc" Click="BtnLoc_Click" Foreground="White" Margin="10 5" Background="#3F7DE9">
                     <StackPanel Orientation="Horizontal" >
                         <materialDesign:PackIcon Height="30" Width="30" Kind="FilterVariant" VerticalAlignment="Center" />

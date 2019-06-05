@@ -20,6 +20,7 @@ namespace DAO_QLTV
             adapter.Fill(dataTable);
             return dataTable;
         }
+
         public DataTable GetABook(int id)
         {
             string sql = $"SELECT ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.GiaTien " +
@@ -30,11 +31,12 @@ namespace DAO_QLTV
             adapter.Fill(dataTable);
             return dataTable;
         }
+
         public DataTable GetSachByLoaiSach(int idLoaiSach)
         {
-            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien, s.SoLuongTong, s.SoLuongConLai, s.IdSach " +
-                $"FROM Sach s LEFT JOIN LoaiSach ls ON s.IdLoaiSach = ls.IdLoaiSach " +
-                $"WHERE ls.IdLoaisach = {idLoaiSach}";
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.IdSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien " +
+                $"FROM Sach s, LoaiSach ls " +
+                $"WHERE ls.IdLoaiSach = s.IdLoaiSach AND ls.IdLoaiSach = {idLoaiSach}";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -156,6 +158,50 @@ namespace DAO_QLTV
                 connection.Close();
             }
             return false;
+        }
+
+        public DataTable FillByTenSach(string str)
+        {
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.IdSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien " +
+                $"FROM Sach s, LoaiSach ls " +
+                $"WHERE ls.IdLoaiSach = s.IdLoaiSach AND s.TenSach LIKE N'%{str}%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        public DataTable FillByNgonNgu(string str)
+        {
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.IdSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien " +
+                $"FROM Sach s, LoaiSach ls " +
+                $"WHERE ls.IdLoaiSach = s.IdLoaiSach AND s.NgonNgu LIKE N'%{str}%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        public DataTable FillByNhaXuatBan(string str)
+        {
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.IdSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien " +
+                $"FROM Sach s, LoaiSach ls " +
+                $"WHERE ls.IdLoaiSach = s.IdLoaiSach AND s.NhaXuatBan LIKE N'%{str}%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        public DataTable FillByIdLoaiSach(int id)
+        {
+            string sql = $"SELECT ls.IdLoaiSach, ls.TenLoaiSach, s.IdSach, s.TenSach, s.NgonNgu, s.NhaXuatBan, s.NgayNhap, s.GiaTien " +
+                $"FROM Sach s, LoaiSach ls " +
+                $"WHERE ls.IdLoaiSach = s.IdLoaiSach AND ls.IdLoaiSach = {id}";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
         }
     }
 }

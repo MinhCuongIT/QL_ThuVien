@@ -18,10 +18,12 @@ namespace BUS_QLTV
         {
             return sachDAO.GetAllData();
         }
+
         public DataTable GetABook(int id)
         {
             return sachDAO.GetABook(id);
         }
+
         public DataTable GetSachByLoaiSach(int idLoaiSach)
         {
             return sachDAO.GetSachByLoaiSach(idLoaiSach);
@@ -69,6 +71,25 @@ namespace BUS_QLTV
             return sachDAO.IsExist(sach);
         }
 
+        public DataTable FillByTenSach(string str)
+        {
+            return sachDAO.FillByTenSach(str);
+        }
+
+        public DataTable FillByNgonNgu(string str)
+        {
+            return sachDAO.FillByNgonNgu(str);
+        }
+
+        public DataTable FillByNhaXuatBan(string str)
+        {
+            return sachDAO.FillByNhaXuatBan(str);
+        }
+
+        public DataTable FillByIdLoaiSach(int id)
+        {
+            return sachDAO.FillByIdLoaiSach(id);
+        }
         #region Methods
         /// <summary>
         /// Kiểm tra một chuỗi hợp lệ
