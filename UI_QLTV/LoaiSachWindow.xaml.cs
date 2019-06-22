@@ -142,7 +142,7 @@ namespace UI_QLTV
                 MessageBox.Show("Vui lòng chọn đối tượng cần để xóa!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 return;
             }
-            if (MessageBox.Show("Bạn có chắc chắn không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Việc xóa loại sách sẽ bao gồm việc việc xóa tất cả các sách.\nBạn có chắc chắn không?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 LoaiSachDTO loaiSach = new LoaiSachDTO()
                 {

@@ -74,15 +74,17 @@ namespace DAO_QLTV
             try
             {
                 connection.Open();
-                string sql = "DELETE FROM LoaiSach WHERE IdLoaiSach = @id";
+                string sql = "DELETE FROM Sach WHERE IdLoaiSach = @idLoaiSach " +
+                    "DELETE FROM LoaiSach WHERE IdLoaiSach = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@idLoaiSach", loaiSach.IdLoaiSach);
                 command.Parameters.AddWithValue("@id", loaiSach.IdLoaiSach);
                 if (command.ExecuteNonQuery() > 0)
                 {
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
